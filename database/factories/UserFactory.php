@@ -30,8 +30,8 @@ $factory->define(App\Colegio::class, function (Faker $faker) {
         'nombreColegio' => $faker->randomElement(['SANTA CRUZ', 'ELENA G. WHITE', 'MONTERO','VILLA BUSCH', 'TRINIDAD', 'ESPAADY'. 'PLAN 3000', 'PUERTO QUIJARRO', 'GUAYAMERÍN', 'SARMIENTO', 'UEAB', 'ELENA G. WHITE Oruro', 'ENTRE RIOS', 'COCHABAMBA', 'BAKER', 'CARANAVI', 'FRANZ TAMAYO', 'HARRY PITTMAN', 'MIRAFLORES', 'PALOS BLANCOS', 'VIACHA', 'SALOMON', 'LOS ANDES', 'REAL DEL SUR (PACAJES)', 'SHALOM', 'SAN JOSE']),
         'mision' => $faker->randomElement(['MOB', 'MCB', 'MBO']),
         'departamento' => $faker->randomElement(['Santa Cruz', 'Cochabamba', 'La Paz', 'Beni', 'Tarija', 'Oruro', 'Potosí', 'Chuquisaca', 'Pando']),
-        
-        
+
+
     ];
 });
 
@@ -77,6 +77,7 @@ $factory->define(App\Evento::class, function (Faker $faker) {
 
     return [
         'nombreEvento' => $faker->randomElement(['Encuentro de promociones', 'Hackathon', 'Feria multidisciplinaria', 'Congreso Internacional de Ingeniería']),
+
     ];
 });
 
@@ -84,6 +85,7 @@ $factory->define(App\Area::class, function (Faker $faker) {
 
     return [
         'nombreArea' => $faker->randomElement(['Área espiritual', 'Área física', 'Área mental', 'Área recreativa']),
+        'id_Evento' => $faker->numberBetween($min = 1, $max = 80),
     ];
 });
 
@@ -92,7 +94,7 @@ $factory->define(App\Actividad::class, function (Faker $faker) {
     return [
         'nombreActividad' => $faker->randomElement(['Fútbol', 'Natación libre 100 mts', 'Natación libre 100 mts', 'Natación espalda 100 mts', 'Natación pecho 100 mts', 'Natación mariposa 100 mts', 'Basket', 'Voleyball', 'Atletismo 100 mts', 'Atletismo 200 mts', 'Atletismo relevos', 'Salto largo', 'Conocimientos generales', 'Teatro', 'Ayuda comunitaria', 'Conocimientos bíblicos']),
         'categoria' => $faker->randomElement(['Varones', 'Damas', 'Mixto']),
-        'id_Area' => $faker->numberBetween($min = 1, $max = 10),
+        'id_Area' => $faker->numberBetween($min = 1, $max = 80),
     ];
 });
 
@@ -103,7 +105,7 @@ $factory->define(App\Evaluacion::class, function (Faker $faker) {
         'id_Actividad' => $faker->numberBetween($min = 1, $max = 10),
         //'id_User' => $faker->numberBetween($min = 1, $max = 1),
         'id_Colegio' => $faker->numberBetween($min = 1, $max = 80),
-        
+
     ];
 });
 
@@ -113,7 +115,7 @@ $factory->define(App\PuntajeExtra::class, function (Faker $faker) {
         'puntajeExtra' => $faker->numberBetween($min = 1, $max = 100),
         'descripcionPuntaje' => $faker->text(100),
         'id_Colegio' => $faker->numberBetween($min = 1, $max = 80),
-        
+
     ];
 });
 
@@ -123,6 +125,6 @@ $factory->define(App\PuntajeTotal::class, function (Faker $faker) {
         'puntajeTotal' => $faker->numberBetween($min = 1, $max = 100),
         'id_PuntajeExtra' => $faker->numberBetween($min = 1, $max = 80),
         'id_Evaluacion' => $faker->numberBetween($min = 1, $max = 80),
-        'id_Colegio' => $faker->numberBetween($min = 1, $max = 80),
+        //'id_Colegio' => $faker->numberBetween($min = 1, $max = 80),
     ];
 });

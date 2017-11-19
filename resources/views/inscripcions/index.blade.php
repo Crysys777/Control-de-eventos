@@ -1,21 +1,25 @@
-@extends('layout')
+@extends('home')
 @section('content')
-	<div class="col-sm-12">
-		<h2 class="text-center text-muted">
-			Listado de inscripcion  
-		</h2>
-		@include('inscripcions.fragment.info')
-		<table class="table table-bordered table-striped table-responsive table-hover table-sm">
 
-			<thead class="table-striped table-bordered">
-				<tr>
-					<th colspan="11">
-						
+<div class="container">
+    <div class="row align-items-start">
+        <div class="col-xl-12" width=device-width>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                	<h2 class="text-center text-muted">
+						Listado de inscripcion
 						<a href="{{ route('inscripcion.create')}}" class="btn btn-outline-primary pull-right">Nuevo <i class="fa fa-plus" aria-hidden="true"></i></a>
-					</th>
-					
-				</tr>
-				
+					</h2>
+            
+				</div>
+                <div class="panel-body">
+
+		@include('inscripcions.fragment.info')
+		<table class="panel-body table-bordered table-striped table-responsive table-hover text-center">
+
+			<thead>
+
+
 				<tr>
 						<th width="20px">ID</th>
 						<th>Colegio</th>
@@ -27,14 +31,13 @@
 						<th>Fecha de inscripción</th>
 						<th colspan="3" class="text-center">Acciones</th>
 
-				
 				</tr>
 			</thead>
-			<tbody>
+				<tbody>
 				@foreach($inscripcions as $inscripcion)
 					<tr>
 						<td>{{ $inscripcion->idInscripcion}}</td>
-						<td>{{ $inscripcion->id_Colegio}}</td>
+						<td>{{ $inscripcion->colegio->nombreColegio}}</td>
 						<td>{{ $inscripcion->cantidadParticipante}}</td>
 						<td>{{ $inscripcion->montoColegio}}</td>
 						<td>{{ $inscripcion->montoParticipante}}</td>
@@ -63,14 +66,18 @@
 						</td>
 					</tr>
 				@endforeach
-				
-			</tbody>
-		</table>
-		{!! $inscripcions->render()!!}
-		
-	</div>
-	<div class="col-md-4" >
+
+						</tbody>
+				</table>
+				{!! $inscripcions->render()!!}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="" >
 		@include('inscripcions.fragment.aside')
 	</div>
-
 @endsection

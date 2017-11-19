@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('home')
 @section('content')
 	<div class="modal-dialog">
 		<h2 class="text-center text-muted">
@@ -53,7 +53,7 @@
 				</tr>
 				<tr>
 					<th>Colegio: </th>
-					<td>{{ $participante->id_Colegio}}</td>
+					<td>{{ $participante->colegio->nombreColegio}}</td>
 				</tr>
 				
 				

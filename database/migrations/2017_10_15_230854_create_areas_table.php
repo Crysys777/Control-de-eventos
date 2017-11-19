@@ -16,6 +16,8 @@ class CreateAreasTable extends Migration
         Schema::create('areas', function (Blueprint $table) {
             $table->increments('idArea');
             $table->string('nombreArea');
+            $table->integer('id_Evento')->unsigned();
+            $table->foreign('id_Evento')->references('idEvento')->on('eventos');
             $table->timestamps();
         });
     }

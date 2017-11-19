@@ -9,15 +9,16 @@ use App\Http\Requests\InscripcionRequest;
 use DB;
 
 class InscripcionController extends Controller
-{	
+{
 	public function index()
 	{
-		
+
 		$inscripcions = Inscripcion::orderBy('idInscripcion', 'DESD')->paginate();
 
 		//carpeta y archivo
 		return view('inscripcions.index', compact('inscripcions'));
 	}
+
 
 	public function create()
 	{
@@ -36,6 +37,7 @@ class InscripcionController extends Controller
 		$inscripcion->cantidadParticipante = $request->cantidadParticipante;
 		$inscripcion->fechaInscripcion = $request->fechaInscripcion;
 
+
 		$inscripcion->save();
 		return redirect()->route('inscripcion.index')->with('info', 'El dato fue guardado');
 	}
@@ -53,7 +55,6 @@ class InscripcionController extends Controller
 		$inscripcion->fechaInscripcion = $request->fechaInscripcion;
 
 		$inscripcion->save();
-		
 		return redirect()->route('inscripcion.index')->with('info', 'El dato fue actualizado');
 	}
 
@@ -77,6 +78,5 @@ class InscripcionController extends Controller
 		return view('inscripcions.edit', compact('inscripcion'));
 	}
 
-	
-    
+
 }

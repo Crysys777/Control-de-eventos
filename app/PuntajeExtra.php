@@ -10,4 +10,14 @@ class PuntajeExtra extends Model
     protected $fillable = [
        'puntajeExtra', 'descripcionPuntaje', 'id_Colegio',
     ];
+
+    public function colegio()
+  {
+  	return $this->belongsTo('App\Colegio', 'id_Colegio', 'idColegio');
+  }
+
+  public function puntajeTotal()
+  {
+    return $this->hasMany('App\PuntajeTotal');
+  }
 }

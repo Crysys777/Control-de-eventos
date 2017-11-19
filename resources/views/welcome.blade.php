@@ -10,9 +10,11 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <link rel="stylesheet" type="text/css" href="../assets/sass/app.scss">
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/sass/app.scss">
+        <link href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
 
         <!-- Styles -->
         <style>
@@ -73,10 +75,10 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">Inicio</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
+                        <a href="{{ route('register') }}">Registrarse</a>
                     @endauth
                 </div>
             @endif
@@ -90,6 +92,12 @@
                     <a href="{{route('inscripcion.index')}}">Inscripción</a>
                     <a href="{{route('colegio.index')}}">Colegio</a>
                     <a href="{{route('participante.index')}}">Participante</a>
+                    <a href="{{route('evento.index')}}">Evento</a>
+                    <a href="{{route('area.index')}}">Area</a>
+                    <a href="{{route('actividad.index')}}">Actividad</a>
+                    <a href="{{route('evaluacion.index')}}">Evaluacion</a>
+                    <a href="{{route('puntajeextra.index')}}">Puntaje extra</a>
+                    <a href="{{route('puntajetotal.index')}}">Puntaje total</a>
                     <a href="https://laracasts.com">Información</a>
                     <a href="https://laravel-news.com">Contactos</a>
                 </div>
@@ -102,4 +110,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="../assets/js/app.js"></script>
+    <!-- new assets -->
+    <script src="{{ asset('assets/jquery/jquery-1.12.4.min.js') }}"></script>
+    <script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
+
 </html>

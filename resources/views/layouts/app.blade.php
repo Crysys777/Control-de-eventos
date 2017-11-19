@@ -8,16 +8,18 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>CDE</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" />
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
+
 
                     <!-- Collapsed Hamburger -->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
@@ -27,10 +29,21 @@
                         <span class="icon-bar"></span>
                     </button>
 
+
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
+                    <a class="navbar-brand" href="{{ url('/') }}">Inicio</a>
+                    <a href="{{route('inscripcion.index')}}" class="navbar-brand">Inscripción</a>
+                    <a href="{{route('colegio.index')}}" class="navbar-brand">Colegio</a>
+                    <a href="{{route('participante.index')}}" class="navbar-brand">Participante</a>
+                    <a href="{{route('evento.index')}}" class="navbar-brand">Evento</a>
+                    <a href="{{route('area.index')}}" class="navbar-brand">Area</a>
+                    <a href="{{route('actividad.index')}}" class="navbar-brand">Actividad</a>
+                    <a href="{{route('evaluacion.index')}}" class="navbar-brand">Evaluacion</a>
+                    <a href="{{route('puntajeextra.index')}}" class="navbar-brand">Puntaje extra</a>
+                    <a href="{{route('puntajetotal.index')}}" class="navbar-brand">Puntaje total</a>
+                    <a href="https://laracasts.com" class="navbar-brand">Información</a>
+                    <a href="https://laravel-news.com" class="navbar-brand">Contactos</a>
+
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -41,11 +54,13 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
+
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Registrarse</a></li>
                         @else
+
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -70,8 +85,8 @@
                 </div>
             </div>
         </nav>
-
         @yield('content')
+
     </div>
 
     <!-- Scripts -->

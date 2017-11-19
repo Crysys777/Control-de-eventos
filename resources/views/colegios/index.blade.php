@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('home')
 @section('content')
 	<div class="col-sm-12">
 		<h2 class="text-center text-muted">

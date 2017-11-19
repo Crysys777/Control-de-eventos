@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('home')
 @section('content')
 	<div class="modal-dialog">
 		<h2 class="text-center text-muted">
@@ -6,15 +6,15 @@
 			<a href="{{ route('inscripcion.create')}}" class="btn btn-primary pull-right">Nuevo</a>
 		</h2>
 
-			
+
 		<table class="table table-striped table-bordered table-responsive table-hover table-sm">
-			
+
 			<tbody>
-				
+
 				<tr>
 					<th width="20px">ID: </th>
 					<td>{{ $inscripcion->idInscripcion}}</td>
-				
+
 				<tr>
 					<th>Colegio</th>
 					<td>{{ $inscripcion->id_Colegio}}</td>
@@ -43,27 +43,27 @@
 					<th>Fecha de inscripción</th>
 					<td>{{ $inscripcion->fechaInscripcion}}</td>
 				</tr>
-				
-				
+
+
 
 			</tbody>
-			
+
 		</table>
-			
+
 			<tr>
 					<a href="{{ route('inscripcion.edit', $inscripcion->idInscripcion)}}" class="btn btn-outline-warning btn-block">Editar</a>
 				</tr>
-									
+
 
 		{!! $inscripcion->body!!}
-		
+
 	</div>
 	<div>
 		@include('inscripcions.fragment.aside')
 	</div>
 
-	
-		
-	
+
+
+
 
 @endsection

@@ -10,5 +10,10 @@ class Evento extends Model
     protected $fillable = [
        'nombreEvento',
     ];
+
+    public function areas()
+    {
+    	return $this->hasMany('App\Area');
+    }
 }
 

@@ -17,7 +17,22 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/import','ExcelController@import');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('inscripcion', 'InscripcionController');
-Route::resource('colegio', 'ColegioController');
-Route::resource('participante', 'ParticipanteController');
+
+Route::middleware(['auth'])->group(function()
+{
+	Route::resource('inscripcion', 'InscripcionController');
+	Route::resource('colegio', 'ColegioController');
+	Route::resource('participante', 'ParticipanteController');
+// monitorear
+	Route::resource('evento', 'EventoController');
+	Route::get('api/evento', 'EventoController@apiEvento')->name('api.evento');
+	Route::resource('area', 'AreaController');
+	Route::resource('actividad', 'ActividadController');
+
+	Route::resource('evaluacion', 'EvaluacionController');
+	Route::resource('puntajeextra', 'PuntajeExtraController');
+	Route::resource('puntajetotal', 'PuntajeTotalController');
+});
+		

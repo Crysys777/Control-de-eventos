@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('home')
 @section('content')
 	<div class="col-sm-12">
 		<h2 class="text-center text-muted">
@@ -10,7 +10,7 @@
 			<thead class="table-striped table-bordered">
 				<tr>
 					<th colspan="12">
-						
+						<a href="{{ route('inscripcion.create')}}" class="btn btn-outline-primary pull-left">Subir excel <i class="fa fa-file-excel-o" aria-hidden="true"></i></a>
 						<a href="{{ route('participante.create')}}" class="btn btn-outline-primary pull-right">Nuevo <i class="fa fa-plus" aria-hidden="true"></i></a>
 					</th>
 					
@@ -42,7 +42,7 @@
 						<td>{{ $participante->ciParticipante}}</td>
 						<td>{{ $participante->tallaPolera}}</td>
 						<td>{{ $participante->tipoParticipante}}</td>
-						<td>{{ $participante->id_Colegio}}</td>
+						<td>{{ $participante->colegio->nombreColegio}}</td>
 						<td >
 							<a href="{{ route('participante.show', $participante->idParticipante)}}" >
 								<button class="btn btn-outline-success">Ver <i class="fa fa-eye" aria-hidden="true"></i></button>
