@@ -8,7 +8,7 @@ class PuntajeTotal extends Model
 {
 	protected $primaryKey = 'idPuntajeTotal';
     protected $fillable = [
-       'puntajeTotal', 'id_PuntajeExtra', 'id_Evaluacion', //'id_Colegio',
+       'puntajeTotal', 'id_PuntajeExtra', 'id_Evaluacion', 'id_Colegio',
     ];
 
 		public function puntajeExtra()
@@ -20,4 +20,10 @@ class PuntajeTotal extends Model
 {
 	return $this->belongsTo('App\Evaluacion', 'id_Evaluacion', 'idEvaluacion');
 }
+
+public function colegio()
+{
+	return $this->belongsTo('App\Evaluacion', 'id_Colegio', 'idColegio');
+}
+
 }

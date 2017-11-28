@@ -1,27 +1,34 @@
 @extends('home')
 @section('content')
-
+<div class="col-sm-2 pull-right" >
+		@include('inscripcions.fragment.aside')
+</div>
 <div class="container">
-    <div class="row align-items-start">
-        <div class="col-xl-12" width=device-width>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                	<h2 class="text-center text-muted">
-						Listado de inscripcion
-						<a href="{{ route('inscripcion.create')}}" class="btn btn-outline-primary pull-right">Nuevo <i class="fa fa-plus" aria-hidden="true"></i></a>
-					</h2>
-            
-				</div>
-                <div class="panel-body">
+	<div class="panel panel-primary">
 
-		@include('inscripcions.fragment.info')
-		<table class="panel-body table-bordered table-striped table-responsive table-hover text-center">
+      	<div class="panel-heading">
+	  		<h2 class="text-center">			  
+				Historial de inscripciones
+			</h2>
+	  	</div>
+	  
+      	<div class="panel-body">
+	  
+		  
+
+			@include('inscripcions.fragment.info')
+		<table class="table table-bordered table-striped table-responsive table-hover table-sm">
 
 			<thead>
-
-
 				<tr>
-						<th width="20px">ID</th>
+					<th colspan="12">
+						
+						<a href="{{ route('inscripcion.create')}}" class="btn btn-outline-primary pull-right">Nuevo <i class="fa fa-plus" aria-hidden="true"></i></a>
+
+					</th>
+				</tr>
+				<tr>
+						<th width="20px">#</th>
 						<th>Colegio</th>
 						<th>N° Participantes</th>
 						<th>Monto colegio (Bs.)</th>
@@ -29,6 +36,7 @@
 						<th>Comprobante de pago</th>
 						<th>Comprobante de pago</th>
 						<th>Fecha de inscripción</th>
+						<th></th>
 						<th colspan="3" class="text-center">Acciones</th>
 
 				</tr>
@@ -44,6 +52,11 @@
 						<td>{{ $inscripcion->colegioComprobante}}</td>
 						<td>{{ $inscripcion->participanteComprobante}}</td>
 						<td>{{ $inscripcion->fechaInscripcion}}</td>
+						<td>
+							<a href="{{route('participante.index')}}" class="navbar-brand">
+								<button class="btn btn-outline-primary">Ver colegio <i class="fa fa-eye" aria-hidden="true"></i></button>
+							</a>
+						</td>
 						<td >
 							<a href="{{ route('inscripcion.show', $inscripcion->idInscripcion)}}" >
 								<button class="btn btn-outline-success">Ver <i class="fa fa-eye" aria-hidden="true"></i></button>
@@ -57,11 +70,35 @@
 						</td>
 						<td>
 							<a href="" >
-									<form action="{{ route('inscripcion.destroy', $inscripcion->idInscripcion) }}" method="POST" accept-charset="utf-8">
+
+							<form action="{{ route('inscripcion.destroy', $inscripcion->idInscripcion) }}" method="POST" accept-charset="utf-8">
 										{{ csrf_field() }}
-										<input type="hidden" name="_method" value="DELETE">
-										<button class="btn btn-outline-danger">Borrar <i class="fa fa-trash-o" aria-hidden="true"></i></button>
-									</form>
+								<input type="hidden" name="_method" value="DELETE">
+								<button class="btn btn-outline-danger" onclick="ConfirmDemo()">Borrar <i class="fa fa-trash-o" aria-hidden="true"></i></button>
+								
+								<script type="text/javascript">
+        						function ConfirmDemo() 
+								{
+        							//Ingresamos un mensaje a mostrar
+        							    var mensaje = confirm("¿Desea eliminar esta inscripción?");
+        							//Detectamos si el usuario acepto el mensaje
+        							if (mensaje) {
+										
+       							 	 alert("¡Se ha eliminado correctamente!");
+       							 		}
+      							  	//Detectamos si el usuario denegó el mensaje
+       							 		else {
+       							 		alert("¡Cancelado!");
+       							 			}
+       							}
+   							</script>
+							   
+							</form>
+									
+									
+
+							
+									
   							</a>
 						</td>
 					</tr>
@@ -71,13 +108,13 @@
 				</table>
 				{!! $inscripcions->render()!!}
 
-                </div>
-            </div>
-        </div>
-    </div>
+
+	  	</div>
+	  
+	</div>
+	
 </div>
 
-<div class="" >
-		@include('inscripcions.fragment.aside')
-	</div>
+
+
 @endsection

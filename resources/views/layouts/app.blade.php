@@ -13,8 +13,14 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    
 </head>
 <body>
+
+   
+
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
@@ -28,7 +34,6 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">Inicio</a>
@@ -84,12 +89,20 @@
                     </ul>
                 </div>
             </div>
+             
         </nav>
-        @yield('content')
+      @yield('content')
 
     </div>
-
+    
     <!-- Scripts -->
+    
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src= "//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+    
+
 </body>
 </html>

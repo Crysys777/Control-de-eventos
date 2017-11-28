@@ -1,10 +1,24 @@
 @extends('home')
 @section('content')
-	<div class="col-sm-12">
-		<h2 class="text-center text-muted">
+
+<div class="col-md-2 pull-right" >
+	@include('colegios.fragment.info')
+	@include('colegios.fragment.aside')
+			
+</div>
+
+<div class="container">
+	<div class="panel panel-primary">
+      <div class="panel-heading">
+	  	<h2 class="text-center">
 			Listado de colegios 
 		</h2>
-		@include('colegios.fragment.info')
+	  </div>
+	  
+      <div class="panel-body">
+	  
+
+	  
 		<table class="table table-bordered table-striped table-responsive table-hover table-sm">
 
 			<thead class="table-striped table-bordered">
@@ -60,10 +74,13 @@
 			</tbody>
 		</table>
 		{!! $colegios->render()!!}
-		
+				  
+	  </div>
 	</div>
-	<div class="col-md-4" >
-		@include('colegios.fragment.aside')
-	</div>
+</div>
+
+
+
+	
 
 @endsection

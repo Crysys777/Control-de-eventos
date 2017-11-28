@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/import','ExcelController@import');
+Route::get('ExportParticipantes','ExcelController@ExportParticipantes');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware(['auth'])->group(function()
@@ -34,5 +34,11 @@ Route::middleware(['auth'])->group(function()
 	Route::resource('evaluacion', 'EvaluacionController');
 	Route::resource('puntajeextra', 'PuntajeExtraController');
 	Route::resource('puntajetotal', 'PuntajeTotalController');
+
+	Route::group(['prefix' => 'db'], function(){
+        Route::get('participante/', 'ParticipanteController@imexport')->name('participante.imexport');
+        Route::post('participante/import', 'ParticipanteController@importParticipante')->name('participante.import');
+        Route::get('participante/export', 'ParticipanteController@exportParticipante')->name('participante.export');
+    });
 });
 		

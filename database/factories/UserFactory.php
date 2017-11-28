@@ -125,6 +125,6 @@ $factory->define(App\PuntajeTotal::class, function (Faker $faker) {
         'puntajeTotal' => $faker->numberBetween($min = 1, $max = 100),
         'id_PuntajeExtra' => $faker->numberBetween($min = 1, $max = 80),
         'id_Evaluacion' => $faker->numberBetween($min = 1, $max = 80),
-        //'id_Colegio' => $faker->numberBetween($min = 1, $max = 80),
+        'id_Colegio' => $faker->numberBetween($min = 1, $max = 80),
     ];
 });

@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-//use Excel;
+use Excel;
 
 class ExcelController extends Controller
 {
-    /*public function ExportParticipantes()
+    public function ExportParticipantes()
     {
     	Excel::create('participantes', function($excel)
     	{
@@ -16,7 +16,7 @@ class ExcelController extends Controller
     			$sheet->loadView('ExportParticipantes');
     		});
     	})->export('xlsx');
-    }*/
+    }
 
     public function import()
     {

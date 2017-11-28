@@ -20,8 +20,8 @@ class CreatePuntajeTotalsTable extends Migration
             $table->foreign('id_PuntajeExtra')->references('idPuntajeExtra')->on('puntaje_extras');
             $table->integer('id_Evaluacion')->unsigned();
             $table->foreign('id_Evaluacion')->references('idEvaluacion')->on('evaluacions');
-            //$table->integer('id_Colegio')->unsigned();
-            //$table->foreign('id_Colegio')->references('idColegio')->on('colegios');
+            $table->integer('id_Colegio')->unsigned();
+            $table->foreign('id_Colegio')->references('idColegio')->on('colegios');
             $table->timestamps();
         });
     }

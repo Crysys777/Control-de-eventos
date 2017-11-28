@@ -13,7 +13,7 @@ class ColegioController extends Controller
     public function index()
 	{
 		
-		$colegios = Colegio::orderBy('idColegio', 'DESD')->paginate();
+		$colegios = Colegio::orderBy('idColegio', 'DESD')->paginate(11);
 
 		//carpeta y archivo
 		return view('colegios.index', compact('colegios'));

@@ -1,19 +1,83 @@
 @extends('home')
 @section('content')
-	<div class="col-sm-12">
-		<h2 class="text-center text-muted">
+
+<div class="col-sm-2 pull-right" >
+	@include('participantes.fragment.info')
+	@include('participantes.fragment.aside')
+</div>
+<div class="container">
+	<div class="panel panel-primary">
+      <div class="panel-heading">
+	  	<h2 class="text-center">
 			Listado de participantes  
 		</h2>
-		@include('participantes.fragment.info')
-		<table class="table table-bordered table-striped table-responsive table-hover table-sm">
+		
+	  </div>
+	  
+      <div class="panel-body">
+
+		
+		<table class="table table-bordered table-striped table-responsive table-hover table-sm" id="participantes">
 
 			<thead class="table-striped table-bordered">
 				<tr>
 					<th colspan="12">
-						<a href="{{ route('inscripcion.create')}}" class="btn btn-outline-primary pull-left">Subir excel <i class="fa fa-file-excel-o" aria-hidden="true"></i></a>
-						<a href="{{ route('participante.create')}}" class="btn btn-outline-primary pull-right">Nuevo <i class="fa fa-plus" aria-hidden="true"></i></a>
+						<a href="{{ route('participante.imexport') }}" class="btn btn-outline-success pull-left">Importar/Exportar <i class="fa fa-file-excel-o" aria-hidden="true"></i></a>
+							<a href="{{ route('participante.create')}}" class="btn btn-outline-primary pull-right">Nuevo <i class="fa fa-plus" aria-hidden="true"></i></a>
+
+								
+
+
+						 	<div class="col-sm-4">
+								 {!! Form::model(Request::all(),['route'=>'participante.index', 'method' => 'GET', 'class' => 'input-group', 'role' => 'search'])!!}
+
+							
+   							 <div class="input-group">
+								<?php
+									$colList = App\Colegio::pluck('idColegio', 'nombreColegio')->toArray();
+		 							?>
+    								{!! Form::select('id_Colegio', array_flip($colList), null, ['class' => 'form-control', 'placeholder' => 'Colegio']) !!}
+								
+
+								{!! Form::select('tallaPolera', config('tallaPolera.tallaList'), null, ['class' => 'form-control', 'placeholder' => 'Talla de polera']) !!}
+
+								<button class="btn btn-outline-primary" type="submit" >Buscar talla polera <i class="fa fa-search" aria-hidden="true"></i></button>
+								
+								
+  							  </div>
+								
+
+								{!! Form::close() !!}
+							 </div>
+
+
+
+							 <div class="col-sm-4">
+								 {!! Form::model(Request::all(),['route'=>'participante.index', 'method' => 'GET', 'class' => 'input-group', 'role' => 'search'])!!}
+
+   							 <div class="input-group">
+								<?php
+									$colList = App\Colegio::pluck('idColegio', 'nombreColegio')->toArray();
+		 							?>
+    								{!! Form::select('id_Colegio', array_flip($colList), null, ['class' => 'form-control', 'placeholder' => 'Colegio']) !!}
+
+									{!! Form::select('sexo', config('sexo.sexoList'), null, ['class' => 'form-control', 'placeholder' => 'Sexo']) !!}
+								
+
+								<button class="btn btn-outline-primary" type="submit" >Buscar según género <i class="fa fa-search" aria-hidden="true"></i></button>
+								
+								
+								
+  							  </div>
+								
+								
+								{!! Form::close() !!}
+							 </div>
+							
+						
+						
 					</th>
-					
+	
 				</tr>
 				
 				<tr>
@@ -59,20 +123,43 @@
 									<form action="{{ route('participante.destroy', $participante->idParticipante) }}" method="POST" accept-charset="utf-8">
 										{{ csrf_field() }}
 										<input type="hidden" name="_method" value="DELETE">
-										<button class="btn btn-outline-danger">Borrar <i class="fa fa-trash-o" aria-hidden="true"></i></button>
+										<button class="btn btn-outline-dark">Borrar <i class="fa fa-trash-o" aria-hidden="true"></i></button>
 									</form>
   							</a>
 						</td>
 					</tr>
+					
 				@endforeach
 				
 			</tbody>
+			
+					
 		</table>
-		{!! $participantes->render()!!}
+
+		<tr>
+			<th >
+				<p>Página actual: {{ $participantes->currentPage() }} </p>
+			</th>
+			<th >
+				<p class="pull-right">Hay {{ $participantes->total() }} registros</p>
+			</th>
+
+		</tr>
+		{!! $participantes->appends(Request::all())->render()!!}
 		
 	</div>
-	<div class="col-sm-3" >
-		@include('participantes.fragment.aside')
-	</div>
+		
+	  </div>
+	  
+    </div>
+
+	
+	
+</div>
+	
+		
+
+		
+		
 
 @endsection

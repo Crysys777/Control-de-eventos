@@ -28,4 +28,8 @@ class Colegio extends Model
     {
     	return $this->hasMany('App\PuntajeExtra');
     }
+    public function puntajeTotals()
+    {
+    	return $this->hasMany('App\PuntajeTotal');
+    }
 }

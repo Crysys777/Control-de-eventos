@@ -25,9 +25,7 @@
 <div class="form-group">
 	{!! Form::label('sexo', 'Sexo: ') !!}
 
-    {!! Form::select('sexo',[
-          'M'=>'Masculino','F'=> 'Femenina'
-                                    ], null, ['class' => 'form-control']) !!}
+    {!! Form::select('sexo',config('sexo.sexoList'), null, ['class' => 'form-control', 'placeholder' => 'Sexo']) !!}
 </div>
 
 
@@ -46,9 +44,7 @@
 <div class="form-group">
     {!! Form::label('tallaPolera', 'Talla de polera: ') !!}
 
-    {!! Form::select('tallaPolera',[
-          'S'=>'Pequeña (S)','M'=> 'Mediana (M)','L'=> 'Larga (L)'
-                                    ], null, ['class' => 'form-control']) !!}
+    {!! Form::select('tallaPolera',config('tallaPolera.tallaList'), null, ['class' => 'form-control', 'placeholder' => 'Talla de polera']) !!}
 </div>
 
 <div class="form-group">
@@ -56,7 +52,7 @@
 
     {!! Form::select('tipoParticipante',[
           'Estudiante'=>'Estudiante','Director'=> 'Director','Prof. de educación física'=> 'Prof. de educación física','Asesor'=>'Asesor'
-                                    ], null, ['class' => 'form-control']) !!}
+                                    ], null, ['class' => 'form-control', 'placeholder' => 'Tipo de participante']) !!}
 </div>
 
 <div class="form-group">

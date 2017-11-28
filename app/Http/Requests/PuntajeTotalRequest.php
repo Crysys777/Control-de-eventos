@@ -27,6 +27,7 @@ class PuntajeTotalRequest extends FormRequest
             'puntajeTotal' => 'required',
             'id_PuntajeExtra' => 'required',
             'id_Evaluacion' => 'required'
+            'id_Colegio' => 'required'
         ];
     }
 }
